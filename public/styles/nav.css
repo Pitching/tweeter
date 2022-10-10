@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding:0.5em 1.5em;
+  position: fixed;
+}
+
+header {
+  display: flex;
+
+}
+
+.navHeader {
+  font-family: 'Bungee', sans-serif;
+}
+
+.writeTweet {
+  display: flex;
+  font-family: 'Source Sans Pro', cursive;
+  font-size: 26px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fa-solid.fa-angles-down {
+  color: red;
+}

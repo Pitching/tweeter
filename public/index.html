@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <!-- Meta Information -->
@@ -7,8 +8,19 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
+    <!-- Bungee & Source Sans Pro Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- Nav bar CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,8 +32,24 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <div class="navHeader">
+        <span>tweeter</span>
+      </div>
+      <div class="writeTweet">
+        <span><strong>Write</strong> a new tweet</span>
+        <i class="fa-solid fa-angles-down"></i>
+      </div>
     </nav>
+
+    <header>
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2>Your Name</h2>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container"></main>
