@@ -1,0 +1,62 @@
+.tweet {
+  border: solid;
+  margin-top: 2em;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 1.5em;
+}
+
+article.tweet .header-tweet {
+  display: flex;
+  background: transparent;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 50px;
+  margin-top: -20px;
+}
+
+article.tweet .header-tweet .fa-solid.fa-hat-wizard {
+  margin-right: 0.5em;
+  font-size: 30px;
+}
+
+article.tweet p {
+  padding: 0em 1em 2em;
+  margin: 0em -1em 0.5em;
+  margin-top: 5%;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: inherit;
+  height: 50px;
+}
+
+article.tweet .footer-tweet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -1em;
+  font-size: 14px;
+}
+
+article.tweet i {
+  width: 30px;
+  color: darkslateblue;
+}
+
+article.tweet #handle {
+  color:#d9d5f1;
+}
+
+article.tweet #name {
+  font-weight: 400;
+}
+
+article.tweet:hover {
+  box-shadow: 4px 4px 2px 1px rgb(77, 77, 77)
+}
+
+article.tweet i:hover {
+  color:goldenrod;
+}
