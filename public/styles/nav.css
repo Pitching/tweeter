@@ -8,11 +8,7 @@ nav {
   align-items: flex-end;
   padding:0.5em 1.5em;
   position: fixed;
-}
-
-header {
-  display: flex;
-
+  top: 0;
 }
 
 .navHeader {
