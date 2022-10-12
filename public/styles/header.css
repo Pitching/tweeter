@@ -11,6 +11,6 @@ header {
 }
 
 .name {
-  transform: translateY(-60%);
+  margin-top: -60px;
   color: white;
 }
