@@ -1,8 +1,6 @@
 .tweet {
   border: solid;
-  margin-top: 2em;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin: 2em -10px 10px -10px;
   padding: 1.5em;
 }
 
@@ -16,9 +14,10 @@ article.tweet .header-tweet {
   margin-top: -20px;
 }
 
-article.tweet .header-tweet .fa-solid.fa-hat-wizard {
+article.tweet #image {
   margin-right: 0.5em;
-  font-size: 30px;
+  margin-top: 0.5em;
+  width: 50px;
 }
 
 article.tweet p {
@@ -51,6 +50,7 @@ article.tweet #handle {
 
 article.tweet #name {
   font-weight: 400;
+  flex: 1;
 }
 
 article.tweet:hover {
