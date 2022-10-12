@@ -38,11 +38,20 @@ $(document).ready(function () {
   
   $('.formTweeterText').submit(function (event) {
     event.preventDefault();
+    $(".error").slideUp("slow", () => {
+      $(".error").addClass("error-hide");
+    });
     const $serializedTweet = $(this).serialize();
-    if ($serializedTweet.slice(5) === "" || $serializedTweet.slice(5) === null) {
-      return alert('There is no content in the tweet text!');
+    if (!$serializedTweet.slice(5)) {
+      $("#errorMessage").text("There is no content in the tweet body, please enter content before posting!");
+      $(".error").slideDown("slow");
+      $(".error").removeClass("error-hide");
+      return;
     } else if ($serializedTweet.slice(5).length > 140) {
-      return alert('Your tweet is too long!');
+      $(".error").slideDown("slow");
+      $(".error").removeClass("error-hide");
+      $("#errorMessage").text("The tweet is too long! Please keep it under 140 characters!");
+      return;
     }
     console.log($serializedTweet);
     $.post('/tweets', $serializedTweet, () => {

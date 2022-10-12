@@ -6,9 +6,20 @@
   font-family: 'Bungee', sans-serif;
 }
 
-.new-tweet {
-  display: flex;
-  flex-direction: column;
+.error {
+  display: table !important;
+  padding: 0.25em 0.25em 0.25em 0.25em;
+  width: auto;
+  align-items: center;
+  margin: 0 auto 20px;
+  border: 2px solid red;
+  color: red;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.error-hide {
+  display: none !important;
 }
 
 #tweet-text {
