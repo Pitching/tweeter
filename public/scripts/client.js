@@ -39,7 +39,12 @@ $(document).ready(function () {
 
   $('.formTweeterText').submit(function (event) {
     event.preventDefault();
-    const $tweeterString = $(this).serialize()
+    const $tweeterString = $(this).serialize();
+    if ($tweeterString.slice(5) === "" || $tweeterString.slice(5) === null) {
+      return alert('There is no content in the tweet text!');
+    } else if ($tweeterString.slice(5).length > 140) {
+      return alert('Your tweet is too long!');
+    }
     console.log($tweeterString);
     $.post('/tweets', $tweeterString);
   });
