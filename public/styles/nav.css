@@ -26,4 +26,11 @@ nav {
 
 .fa-solid.fa-angles-down {
   color: red;
+  animation: arrowAnimation 1.5s infinite;
+}
+
+@keyframes arrowAnimation {
+  0% {transform:translateY(0%)}
+  50% {transform:translateY(20%)}
+  100% {transform:translateY(0%)};
 }

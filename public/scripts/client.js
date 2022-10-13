@@ -35,8 +35,13 @@ $(document).ready(function () {
   };
 
   loadTweets();
+
+  $(".writeTweet").on("click", () => {
+    $(".formTweeterText").slideToggle("slow");
+    $("#tweet-text").focus();
+  })
   
-  $('.formTweeterText').submit(function (event) {
+  $(".formTweeterText").submit(function (event) {
     event.preventDefault();
     $(".error").slideUp("slow", () => {
     });
