@@ -1,3 +1,5 @@
+/* Function creates jquery handlers for turning all inputted text into non-malicious text before concatenating all the elements
+in an article and updating the database with the tweets. */
 const createTweetElement = function(tweet) {
 
   const $article = $('<article class="tweet">');
@@ -17,6 +19,8 @@ const createTweetElement = function(tweet) {
   return $article;
 }
 
+/* Function for prepending the newest tweet to the top of 
+the page, given a tweets object */
 const renderTweets = function(tweets) {
   $("#tweets-container").empty();
   for (const tweet of tweets) {
@@ -25,40 +29,38 @@ const renderTweets = function(tweets) {
   }
 }
 
+/* Function for loading the tweets object from /tweets before passing 
+it to the above function */
+const loadTweets = function() {
+  $.ajax('/tweets', { method: 'GET' })
+  .then(function (data) {
+    renderTweets(data);
+  });
+};
+
+/* Loading webpage on DOM initialization */
 $(document).ready(function () {
 
-  const loadTweets = function() {
-    $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
-      renderTweets(data);
-    });
-  };
-
+  /* Load tweets on DOM initialization */
   loadTweets();
 
-  $(document).scroll(function() {
-    let distance = $(this).scrollTop();
-    if (distance < 600) {
-      $(".fa-solid.fa-circle-chevron-up").addClass("error-hide");
-      return;
-    }
-    $(".fa-solid.fa-circle-chevron-up").removeClass("error-hide");
-  })
-
-  $(".fa-solid.fa-circle-chevron-up").on("click", () => {
-    window.scrollTo(0, 0);
-  });
-
+  /* Function for displaying the form to submit tweets. Will slide it up if it is visible and vice versa, 
+  focusing on it at all times on click event */
   $(".writeTweet").on("click", () => {
     $(".formTweeterText").slideToggle("slow");
     $("#tweet-text").focus();
   });
   
+  /* Submission form for the tweet text with error handlers.
+  If there is no text, show an appropriate error message.
+  If the text is too long, show an appropriate error message.
+  Always hide the error on successful tweet and scroll it up at submit initiation. */
   $(".formTweeterText").submit(function (event) {
     event.preventDefault();
     $(".error").slideUp("slow", () => {
     });
     const $serializedTweet = $(this).serialize();
+
     if (!$serializedTweet.slice(5)) {
       $("#errorMessage").text("There is no content in the tweet body, please enter content before posting!");
       $(".error").slideDown("slow");
@@ -70,6 +72,8 @@ $(document).ready(function () {
       $(".error").removeClass("error-hide");
       return;
     }
+
+    /* If tweet can be posted, hide the error, reset the counter, set value to "" and update tweets to page. */
     console.log($serializedTweet);
     $.post('/tweets', $serializedTweet, () => {
       $(".error").addClass("error-hide");

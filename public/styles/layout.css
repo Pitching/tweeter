@@ -50,13 +50,14 @@ body {
   color:gold;
 }
 
-
+/* Code to make my name smaller since it wouldn't fit in the box between these sizes */
 @media screen and (max-width: 1400px) and (min-width: 1024px){
   .name {
     font-size: 24px;
   }
 }
 
+/* Code to readjust the page for desktop view */
 @media screen and (min-width: 1024px) {
   body {
     display: flex;
