@@ -74,7 +74,6 @@ $(document).ready(function () {
     }
 
     /* If tweet can be posted, hide the error, reset the counter, set value to "" and update tweets to page. */
-    console.log($serializedTweet);
     $.post('/tweets', $serializedTweet, () => {
       $(".error").addClass("error-hide");
       $(".counter").text("140");
