@@ -36,3 +36,29 @@ body {
   font-size: 20px;
   margin-top: 40px;
 }
+
+@media screen and (max-width: 1400px) and (min-width: 1024px){
+  .name {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+  .container {
+    margin: 196px 40px 0px 100px;
+  }
+  .header-avatar {
+    width: 50%;
+    margin: 200px 100px 0px 40px;
+  }
+  .avatar {
+    margin-top: 20px;
+  }
+  body nav {
+    background-color: #4056A1;
+    background-image: none;
+  }
+}

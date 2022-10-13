@@ -39,7 +39,6 @@ $(document).ready(function () {
   $('.formTweeterText').submit(function (event) {
     event.preventDefault();
     $(".error").slideUp("slow", () => {
-      $(".error").addClass("error-hide");
     });
     const $serializedTweet = $(this).serialize();
     if (!$serializedTweet.slice(5)) {
@@ -48,13 +47,14 @@ $(document).ready(function () {
       $(".error").removeClass("error-hide");
       return;
     } else if ($serializedTweet.slice(5).length > 140) {
+      $("#errorMessage").text("The tweet is too long! Please keep it under 140 characters!");
       $(".error").slideDown("slow");
       $(".error").removeClass("error-hide");
-      $("#errorMessage").text("The tweet is too long! Please keep it under 140 characters!");
       return;
     }
     console.log($serializedTweet);
     $.post('/tweets', $serializedTweet, () => {
+      $(".error").addClass("error-hide");
       $(".counter").text("140");
       $("#tweet-text").val("");
       loadTweets();

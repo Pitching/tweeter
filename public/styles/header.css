@@ -5,7 +5,6 @@ header {
   margin-top: 120px;
   align-items: center;
   flex-direction: column;
-  justify-content: baseline;
   background-color: darkmagenta;
   background-image: url("/images/carbon-fibre.png");
 }
