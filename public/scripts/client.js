@@ -36,10 +36,23 @@ $(document).ready(function () {
 
   loadTweets();
 
+  $(document).scroll(function() {
+    let distance = $(this).scrollTop();
+    if (distance < 600) {
+      $(".fa-solid.fa-circle-chevron-up").addClass("error-hide");
+      return;
+    }
+    $(".fa-solid.fa-circle-chevron-up").removeClass("error-hide");
+  })
+
+  $(".fa-solid.fa-circle-chevron-up").on("click", () => {
+    window.scrollTo(0, 0);
+  });
+
   $(".writeTweet").on("click", () => {
     $(".formTweeterText").slideToggle("slow");
     $("#tweet-text").focus();
-  })
+  });
   
   $(".formTweeterText").submit(function (event) {
     event.preventDefault();

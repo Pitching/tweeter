@@ -37,6 +37,20 @@ body {
   margin-top: 40px;
 }
 
+.fa-solid.fa-circle-chevron-up {
+  font-size:80px;
+  color: red;
+  padding: 0em 0.25em 0.25em 0;
+  position:fixed;
+  bottom:0px;
+  right:0px;
+}
+
+.fa-solid.fa-circle-chevron-up:hover {
+  color:gold;
+}
+
+
 @media screen and (max-width: 1400px) and (min-width: 1024px){
   .name {
     font-size: 24px;
@@ -60,5 +74,9 @@ body {
   body nav {
     background-color: #4056A1;
     background-image: none;
+    position: fixed;
+  }
+  body header {
+    margin-top: 120px;
   }
 }
