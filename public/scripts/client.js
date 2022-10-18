@@ -1,6 +1,6 @@
 /* Function creates jquery handlers for turning all inputted text into non-malicious text before concatenating all the elements
 in an article and updating the database with the tweets. */
-const createTweetElement = function (tweet) {
+const createTweetElement = function(tweet) {
 
   const $article = $('<article class="tweet">');
   const $header = $('<header class="header-tweet">');
@@ -21,7 +21,7 @@ const createTweetElement = function (tweet) {
 
 /* Function for prepending the newest tweet to the top of 
 the page, given a tweets object */
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   $("#tweets-container").empty();
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
@@ -31,14 +31,14 @@ const renderTweets = function (tweets) {
 
 /* Function for loading the tweets object from /tweets before passing 
 it to the above function */
-const loadTweets = function () {
+const loadTweets = function() {
   $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
-      renderTweets(data);
-    })
-    .catch(function (error) {
-      alert(error);
-    });
+  .then(function (data) {
+    renderTweets(data);
+  })
+  .catch(function (error) {
+    alert(error);
+  });
 };
 
 /* Loading webpage on DOM initialization */
@@ -53,7 +53,7 @@ $(document).ready(function () {
     $(".formTweeterText").slideToggle("slow");
     $("#tweet-text").focus();
   });
-
+  
   /* Submission form for the tweet text with error handlers.
   If there is no text, show an appropriate error message.
   If the text is too long, show an appropriate error message.
@@ -79,12 +79,11 @@ $(document).ready(function () {
     }
 
     /* If tweet can be posted, hide the error, reset the counter, set value to "" and update tweets to page. */
-    $.ajax({ url: '/tweets', method: 'POST', data: $serializedTweet })
-      .then(() => {
-        $(".error").addClass("error-hide");
-        $(".counter").text("140");
-        $("#tweet-text").val("");
-        loadTweets();
-      });
+    $.post('/tweets', $serializedTweet, () => {
+      $(".error").addClass("error-hide");
+      $(".counter").text("140");
+      $("#tweet-text").val("");
+      loadTweets();
+    });
   });
 });
