@@ -79,11 +79,12 @@ $(document).ready(function () {
     }
 
     /* If tweet can be posted, hide the error, reset the counter, set value to "" and update tweets to page. */
-    $.post('/tweets', $serializedTweet, () => {
-      $(".error").addClass("error-hide");
-      $(".counter").text("140");
-      $("#tweet-text").val("");
-      loadTweets();
-    });
+    $.ajax({ url: '/tweets', method: 'POST', data: $serializedTweet })
+      .then(() => {
+        $(".error").addClass("error-hide");
+        $(".counter").text("140");
+        $("#tweet-text").val("");
+        loadTweets();
+      });
   });
 });
